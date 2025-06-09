@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uptime-frontend
+  labels:
+    app: uptime-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: uptime-frontend
+  template:
+    metadata:
+      labels:
+        app: uptime-frontend
+    spec:
+      containers:
+      - name: uptime-frontend
+        image: 890742580558.dkr.ecr.ap-southeast-1.amazonaws.com/uptime-monitor:latest
+        ports:
+        - containerPort: 80
